@@ -594,8 +594,8 @@ namespace DTcms.DAL
                 conn.Open();
                 using (SqlTransaction trans = conn.BeginTransaction())
                 {
-                    try
-                    {
+                    //try
+                    //{
                         StringBuilder strSql = new StringBuilder();
                         strSql.Append("update mtms_TransportOrder set ");
                         strSql.Append(" Code = @Code , ");
@@ -674,7 +674,7 @@ namespace DTcms.DAL
                         DbHelperSQL.ExecuteSql(conn, trans, strSql.ToString(), parameters);
 
                         //删除运输子单
-                        new TransportOrderItem().DeleteBy(model.Id);
+                        new TransportOrderItem().DeleteBy(conn, trans, model.Id);
 
                         //添加运输子单 List<Model.TransportOrderItem> item_list
                         if (item_list != null)
@@ -714,7 +714,7 @@ namespace DTcms.DAL
                                                 new SqlParameter("@OrderCode", SqlDbType.VarChar,254),
                                                 new SqlParameter("@OrderId", SqlDbType.Int,4)};
 
-                                parameters2[0].Value = modelt.TransportOrderId;
+                                parameters2[0].Value = model.Id;
                                 parameters2[1].Value = modelt.RoundStatus;
                                 parameters2[2].Value = modelt.ContractNumber;
                                 parameters2[3].Value = modelt.BillNumber;
@@ -746,32 +746,39 @@ namespace DTcms.DAL
                         //订单
                         if (order_list != null)
                         {
+                            Order orderDAL = new Order();
+                            Model.Order order;
                             foreach (Model.Order modelt in order_list)
                             {
+                                order = orderDAL.GetModel(modelt.Id);
+                                int status = (order.IsCharteredCar == 1 || ((order.DispatchedCount + modelt.DispatchedCount) == order.Quantity)) ? 1 : 0;
+                                order.Status = status;
+                                order.DispatchedCount += modelt.DispatchedCount;
+
                                 StringBuilder strSql3 = new StringBuilder();
                                 strSql3.Append("update mtms_Order set ");
                                 strSql3.Append(" Status=@Status,");
-                                strSql3.Append(" DispatchedCount=@DispatchCount ");
+                                strSql3.Append(" DispatchedCount += @DispatchCount ");
                                 strSql3.Append(" where Id=@Id ");
                                 SqlParameter[] parameters3 = {
 			                        new SqlParameter("@Id", SqlDbType.Int,4) ,            
                                     new SqlParameter("@DispatchCount", SqlDbType.Decimal,9),       
                                     new SqlParameter("@Status", SqlDbType.Int,4)};
 
-                                parameters3[0].Value = modelt.Id;
-                                parameters3[1].Value = modelt.DispatchedCount;
-                                parameters3[2].Value = modelt.Status;
+                                parameters3[0].Value = order.Id;
+                                parameters3[1].Value = order.DispatchedCount;
+                                parameters3[2].Value = order.Status;
                                 
                                 DbHelperSQL.ExecuteSql(conn, trans, strSql3.ToString(), parameters3);
                             }
                         }
-                        trans.Commit();
-                    }
-                    catch
-                    {
                         trans.Rollback();
-                        return false;
-                    }
+                    //}
+                    //catch
+                    //{
+                    //    trans.Rollback();
+                    //    return false;
+                    //}
                 }
             }
             return true;

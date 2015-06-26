@@ -14,10 +14,14 @@
     <RootNamespace>DTcms.Web</RootNamespace>
     <AssemblyName>DTcms.Web</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
-    <SccProjectName>Svn</SccProjectName>
-    <SccLocalPath>Svn</SccLocalPath>
-    <SccAuxPath>Svn</SccAuxPath>
-    <SccProvider>SubversionScc</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <UseIISExpress>true</UseIISExpress>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -1290,13 +1294,6 @@
     <Compile Include="tools\verify_code.ashx.cs">
       <DependentUpon>verify_code.ashx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTcms.API\DTcms.API.csproj">
@@ -1332,7 +1329,6 @@
     <Content Include="tools\admin_ajax.ashx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WebForm1.aspx" />
     <Content Include="xmlconfig\site.config">
       <SubType>Designer</SubType>
     </Content>

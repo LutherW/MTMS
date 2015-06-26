@@ -314,6 +314,40 @@ namespace DTcms.DAL
             }
         }
 
+        public bool DeleteBy(SqlConnection conn, SqlTransaction trans, int transportOrderId)
+        {
+            DataSet ds = new DAL.TransportOrderItem().GetList("TransportOrderId = " + transportOrderId + "");
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    int orderId = Convert.ToInt32(dr["OrderId"]);
+                    decimal factDispatchCount = Convert.ToDecimal(dr["FactDispatchCount"]);
+                    new DAL.Order().UpdateField(conn, trans, orderId, "DispatchedCount -= " + factDispatchCount + ", Status = 0 ");
+                }
+                StringBuilder strSql = new StringBuilder();
+                strSql.Append("delete from mtms_TransportOrderItem ");
+                strSql.Append(" where TransportOrderId=@TransportOrderId");
+                SqlParameter[] parameters = {
+					    new SqlParameter("@TransportOrderId", SqlDbType.Int,4)
+			    };
+                parameters[0].Value = transportOrderId;
+
+
+                int rows = DbHelperSQL.ExecuteSql(conn, trans, strSql.ToString(), parameters);
+                if (rows > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            return false;
+        }
+
         /// <summary>
         /// 批量删除一批数据
         /// </summary>

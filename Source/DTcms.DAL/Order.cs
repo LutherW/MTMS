@@ -226,6 +226,15 @@ namespace DTcms.DAL
             }
         }
 
+        public int UpdateField(SqlConnection conn, SqlTransaction trans, int id, string strValue)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update mtms_Order set " + strValue);
+            strSql.Append(" where Id=" + id);
+
+            return DbHelperSQL.ExecuteSql(conn, trans, strSql.ToString());
+        }
+
         public bool AddDispatchCount(int id, decimal dispatchCount, int status)
         {
             StringBuilder strSql = new StringBuilder();

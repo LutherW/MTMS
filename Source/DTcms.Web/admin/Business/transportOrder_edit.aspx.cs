@@ -225,7 +225,7 @@ namespace DTcms.Web.admin.Business
             List<Model.Order> order_list = new List<Model.Order>();//订单
             BLL.Order orderBll = new BLL.Order();
 
-            new BLL.TransportOrderItem().DeleteBy(model.Id);//删除该运输单下 所有 运输子项
+            //new BLL.TransportOrderItem().DeleteBy(model.Id);//删除该运输单下 所有 运输子项
 
             for (int i = 0; i < orderIds.Length; i++)
             {
@@ -233,7 +233,8 @@ namespace DTcms.Web.admin.Business
                 if (order != null)
                 {
                     Model.TransportOrderItem item = new Model.TransportOrderItem();
-                    item.TransportOrderId = model.Id;
+                    item.OrderId = order.Id;
+                    item.OrderCode = order.Code;
                     item.ContractNumber = order.ContractNumber;
                     item.BillNumber = order.BillNumber;
                     item.Shipper = order.Shipper;
@@ -242,7 +243,7 @@ namespace DTcms.Web.admin.Business
                     item.UnloadingAddress = order.UnloadingAddress;
                     item.Goods = order.Goods;
                     item.Unit = order.Unit;
-                    item.DispatchCount = order.DispatchedCount;
+                    item.DispatchCount = order.Quantity;
                     item.FactDispatchCount = Convert.ToDecimal(factDispatchCounts[i]);
                     item.FactReceivedCount = item.FactDispatchCount;
                     item.CompensationCosts = 0.00M;
@@ -256,9 +257,9 @@ namespace DTcms.Web.admin.Business
                     item.CompanyPrice = item.TotalPrice;
                     item_list.Add(item);
                     
-                    int status = (order.IsCharteredCar == 1 || ((order.DispatchedCount + item.FactDispatchCount) == order.Quantity)) ? 1 : 0;
-                    order.Status = status;
-                    order.DispatchedCount = order.DispatchedCount + item.FactDispatchCount;
+                    //int status = (order.IsCharteredCar == 1 || ((order.DispatchedCount + item.FactDispatchCount) == order.Quantity)) ? 1 : 0;
+                    //order.Status = status;
+                    order.DispatchedCount = item.FactDispatchCount;
                     order_list.Add(order);
                 }
             }
