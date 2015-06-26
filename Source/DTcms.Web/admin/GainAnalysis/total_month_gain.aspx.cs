@@ -99,7 +99,12 @@ namespace DTcms.Web.admin.GainAnalysis
                     }
                 }
             }
-
+            //throw new Exception("totalIncome:" + totalIncome.ToString()
+            //    + "totalFactRepayment:" + totalFactRepayment.ToString()
+            //    + "totalCarriage:" + totalCarriage.ToString()
+            //    + "totalAdvance:" + totalAdvance.ToString()
+            //    + "totalCostItem:" + totalCostItem.ToString()
+            //    );
             totalGain = totalIncome + totalFactRepayment - totalCarriage - totalAdvance - totalCostItem;
         }
         #endregion

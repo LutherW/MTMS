@@ -85,7 +85,7 @@ namespace DTcms.Web.admin.Business
                 transportOrderItems += "<td width=\"10%\">" + dr["Receiver"].ToString()  + "</td>";
                 transportOrderItems += "<td width=\"10%\">" + dr["Goods"].ToString()  + "</td>";
                 transportOrderItems += "<td width=\"9%\">" + dr["Unit"].ToString()  + "</td>";
-                transportOrderItems += "<td width=\"6%\"><input type=\"text\" name=\"factDispatchCount\" class=\"input small\" value=\"" + dr["FactDispatchCount"].ToString() + "\" style='width:50px'/></td>";
+                transportOrderItems += "<td width=\"6%\"><input type=\"text\" name=\"factDispatchCount\" class=\"input small\" value=\"" + dr["FactDispatchCount"].ToString() + "\" readonly='readonly' style='width:50px'/></td>";
                 transportOrderItems += "<td width=\"5%\"><input type=\"text\" name=\"factReceivedCount\" class=\"input small\" value=\"" + dr["FactReceivedCount"].ToString() + "\" style='width:50px'/></td>";
                 transportOrderItems += "<td width=\"5%\">￥" + string.Format("{0:N2}",dr["UnitPrice"].ToString())+ "</td>";
                 transportOrderItems += "<td width=\"5%\">￥<input type=\"text\" name=\"totalPrice\" value=\"" + dr["TotalPrice"].ToString() + "\" style='width:50px'/></td>";

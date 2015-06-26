@@ -323,7 +323,7 @@ namespace DTcms.DAL
                 {
                     int orderId = Convert.ToInt32(dr["OrderId"]);
                     decimal factDispatchCount = Convert.ToDecimal(dr["FactDispatchCount"]);
-                    new DAL.Order().UpdateField(conn, trans, orderId, "DispatchedCount -= " + factDispatchCount + ", Status = 0 ");
+                    new DAL.Order().UpdateField(conn, trans, orderId, "DispatchedCount = DispatchedCount - " + factDispatchCount + "");
                 }
                 StringBuilder strSql = new StringBuilder();
                 strSql.Append("delete from mtms_TransportOrderItem ");
