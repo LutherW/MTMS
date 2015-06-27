@@ -41,9 +41,9 @@ namespace DTcms.BLL
         /// <summary>
         /// 更新一条数据
         /// </summary>
-        public bool Update(Model.TransportOrder model, List<Model.TransportOrderItem> item_list, List<Model.Consumption> consumption_list)
+        public bool Update(Model.TransportOrder model, List<Model.TransportOrderItem> item_list, List<Model.Consumption> consumption_list, List<Model.Order> orders)
         {
-            return dal.Update(model, item_list, consumption_list);
+            return dal.Update(model, item_list, consumption_list, orders);
         }
         /// <summary>
         /// 更新一条数据

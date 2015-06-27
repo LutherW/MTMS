@@ -69,7 +69,7 @@
             </tr>
             <tr>
                 <td width="20%" style="text-align:right">出车支款&nbsp;:&nbsp;&nbsp;</td>
-                <td>￥<%=string.Format("{0:N2}", totalCarriage) %></td>
+                <td>￥<%=string.Format("{0:N2}", totalAdvance) %></td>
             </tr>
             <%=costItem %>
         </table>
@@ -79,7 +79,7 @@
             </tr>
             <tr>
                 <td width="20%" style="text-align:right">总计&nbsp;:&nbsp;&nbsp;</td>
-                <td<%if (totalGain>0) {%> style="color:green"<%}else{ %>style="color:#c00;"<%} %>><b style="font-size:14px;">￥<%=string.Format("{0:N2}", totalGain) %></b></td>
+                <td <%if (totalGain>0) {%> style="color:green"<%}else{ %>style="color:#c00;"<%} %>><b style="font-size:14px;">￥<%=string.Format("{0:N2}", totalGain) %></b></td>
             </tr>
         </table>
         <!--/列表-->

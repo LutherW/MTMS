@@ -85,7 +85,7 @@
                 html += "<td width=\"10%\">" + order.goods + "</td>";
                 html += "<td width=\"9%\">" + order.unit + "</td>";
                 html += "<td width=\"6%\">" + order.quantity + "</td>";
-                html += "<td width=\"5%\"><input type=\"text\" class=\"input small\" name=\"factDispatchCount\" value=\"0.00\"/></td>";
+                html += "<td width=\"5%\"><input type=\"text\" class=\"input small\" name=\"factDispatchCount\" value=\"0.00\" /></td>";
                 html += "<td width=\"5%\">" + order.unitPrice + "</td>";
                 html += "<td width=\"5%\">" + order.totalPrice + "</td>";
                 html += "</tr>";

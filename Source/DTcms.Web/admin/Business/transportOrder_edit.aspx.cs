@@ -83,7 +83,7 @@ namespace DTcms.Web.admin.Business
             }
 
             BLL.Order orderBll = new BLL.Order();
-            this.rptList.DataSource = orderBll.GetList(" Status = 0 ");
+            this.rptList.DataSource = orderBll.GetList(" Quantity > DispatchedCount or (IsCharteredCar = 1 and DispatchedCount = 0.00)");
             this.rptList.DataBind();
         }
         #endregion
@@ -105,14 +105,15 @@ namespace DTcms.Web.admin.Business
             DataTable dt = itemBll.GetList(" TransportOrderId = " + model.Id + "").Tables[0];
             foreach (DataRow dr in dt.Rows)
             {
-                transportOrderItems += "<tr data-value=\"" + dr["Id"].ToString() + "\">";
+                string dispatchCount = dr["DispatchCount"].ToString().Equals("0.00") ? "包车" : dr["DispatchCount"].ToString();
+                transportOrderItems += "<tr data-value=\"" + dr["Id"].ToString() + "\" data-order-id=\"" + dr["OrderId"].ToString() + "\">";
                 transportOrderItems += "<td width=\"5%\"><input type=\"hidden\" name=\"orderId\" value=\"" + dr["OrderId"].ToString() + "\"/></td>";
                 transportOrderItems += "<td width=\"10%\">" + dr["BillNumber"].ToString() + "</td>";
                 transportOrderItems += "<td width=\"10%\">" + dr["Shipper"].ToString() + "</td>";
                 transportOrderItems += "<td width=\"10%\">" + dr["Receiver"].ToString()  + "</td>";
                 transportOrderItems += "<td width=\"10%\">" + dr["Goods"].ToString()  + "</td>";
                 transportOrderItems += "<td width=\"9%\">" + dr["Unit"].ToString()  + "</td>";
-                transportOrderItems += "<td width=\"6%\">" + dr["DispatchCount"].ToString() + "</td>";
+                transportOrderItems += "<td width=\"6%\">" + dispatchCount + "</td>";
                 transportOrderItems += "<td width=\"5%\"><input type=\"text\" name=\"factDispatchCount\" value=\"" + dr["FactDispatchCount"].ToString() + "\" class=\"input small\"/></td>";
                 transportOrderItems += "<td width=\"5%\">" + dr["UnitPrice"].ToString()  + "</td>";
                 transportOrderItems += "<td width=\"5%\">" + dr["TotalPrice"].ToString()  + "</td>";
@@ -180,8 +181,8 @@ namespace DTcms.Web.admin.Business
                     item.CompanyPrice = item.TotalPrice;
                     item_list.Add(item);
 
-                    int status = (order.IsCharteredCar == 1 || ((order.DispatchedCount + item.FactDispatchCount) == order.Quantity)) ? 1 : 0;
-                    order.Status = status;
+                   // int status = (order.IsCharteredCar == 1 || ((order.DispatchedCount + item.FactDispatchCount) == order.Quantity)) ? 1 : 0;
+                    //order.Status = status;
                     order.DispatchedCount = order.DispatchedCount + item.FactDispatchCount;
                     order_list.Add(order);
                 }
@@ -257,10 +258,11 @@ namespace DTcms.Web.admin.Business
                     item.CompanyPrice = item.TotalPrice;
                     item_list.Add(item);
 
-                    int status = (order.IsCharteredCar == 1 || ((order.DispatchedCount + item.FactDispatchCount) == order.Quantity)) ? 1 : 0;
-                    order.Status = status;
-                    order.DispatchedCount = item.FactDispatchCount;
-                    order_list.Add(order);
+                    
+                    //int status = (order.IsCharteredCar == 1 || ((order.DispatchedCount + item.FactDispatchCount) == order.Quantity)) ? 1 : 0;
+                    //order.Status = status;
+                    //order.DispatchedCount = item.FactDispatchCount;
+                    //order_list.Add(order);
                 }
             }
             if (bll.Update(model,item_list,order_list))

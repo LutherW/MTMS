@@ -127,7 +127,12 @@ namespace DTcms.Web.admin.GainAnalysis
             decimal gain = totalMoney - Utils.StrToDecimal(advance, 0.00M) + Utils.StrToDecimal(factRepayment, 0.00M) - Utils.StrToDecimal(carriage, 0.00M) - totalCost;
 
             string html = string.Format("<td align=\"center\">￥{0}</td><td align=\"center\">￥{1}</td><td align=\"center\">￥{2}</td><td align=\"center\">￥{3}</td><td align=\"center\">￥{4}</td><td align=\"center\">￥{5}</td>",
-                string.Format("{0:N2}", advance), string.Format("{0:N2}", factRepayment), string.Format("{0:N2}", carriage), string.Format("{0:N2}", totalMoney), string.Format("{0:N2}", totalCost), string.Format("{0:N2}", gain));
+                string.Format("{0:N2}", advance), 
+                string.Format("{0:N2}", factRepayment), 
+                string.Format("{0:N2}", carriage), 
+                string.Format("{0:N2}", totalMoney),
+                string.Format("<a href=\"javascript:void(0);\" onclick=\"showCost(" + transportOrderId + ");\">{0:N2}</a>", totalCost), 
+                string.Format("{0:N2}", gain));
 
             return html;
         }

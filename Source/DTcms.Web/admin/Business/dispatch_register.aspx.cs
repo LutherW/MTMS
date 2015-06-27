@@ -67,7 +67,8 @@ namespace DTcms.Web.admin.Business
             DataTable dt = itemBll.GetList(" TransportOrderId = " + model.Id + "").Tables[0];
             foreach (DataRow dr in dt.Rows)
             {
-                transportOrderItems += "<tr data-value=\"" + dr["Id"].ToString() + "\">";
+                string dispatchCount = dr["DispatchCount"].ToString().Equals("0.00") ? "包车" : dr["DispatchCount"].ToString();
+                transportOrderItems += "<tr data-value=\"" + dr["OrderId"].ToString() + "\">";
                 transportOrderItems += "<td width=\"5%\"><input type=\"hidden\" name=\"transportOrderItemId\" value=\"" + dr["Id"].ToString() + "\"/></td>";
                 transportOrderItems += "<td align=\"left\">" + dr["OrderCode"].ToString() + "</td>";
                 transportOrderItems += "<td width=\"10%\">" + dr["BillNumber"].ToString() + "</td>";
@@ -75,8 +76,8 @@ namespace DTcms.Web.admin.Business
                 transportOrderItems += "<td width=\"10%\">" + dr["Receiver"].ToString()  + "</td>";
                 transportOrderItems += "<td width=\"10%\">" + dr["Goods"].ToString()  + "</td>";
                 transportOrderItems += "<td width=\"9%\" align=\"center\">" + dr["Unit"].ToString()  + "</td>";
-                transportOrderItems += "<td width=\"6%\">" + dr["DispatchCount"].ToString() + "</td>";
-                transportOrderItems += "<td width=\"5%\"><input type=\"text\" name=\"factDispatchCount\" class=\"input small\" value=\"" + dr["FactDispatchCount"].ToString() + "\"/></td>";
+                transportOrderItems += "<td width=\"6%\">" + dispatchCount + "</td>";
+                transportOrderItems += "<td width=\"5%\">" + dr["FactDispatchCount"].ToString() + "</td>";
                 transportOrderItems += "<td width=\"5%\">￥" + dr["UnitPrice"].ToString()  + "</td>";
                 transportOrderItems += "<td width=\"5%\">￥" + dr["TotalPrice"].ToString() + "</td>";
                 transportOrderItems += "</tr>";
@@ -107,22 +108,23 @@ namespace DTcms.Web.admin.Business
             model.Payee = labPayee.Text;
             model.Status = 1;
 
-            string[] itemIds = Request.Params.GetValues("transportOrderItemId");
-            string[] factDispatchCounts = Request.Params.GetValues("factDispatchCount");
+            //string[] itemIds = Request.Params.GetValues("transportOrderItemId");
+            //string[] factDispatchCounts = Request.Params.GetValues("factDispatchCount");
 
 
             List<Model.TransportOrderItem> item_list = new List<Model.TransportOrderItem>();
-            BLL.TransportOrderItem itemBll = new BLL.TransportOrderItem();
+            //BLL.TransportOrderItem itemBll = new BLL.TransportOrderItem();
 
-            for (int i = 0; i < itemIds.Length; i++)
-            {
-                Model.TransportOrderItem item = itemBll.GetModel(Utils.StrToInt(itemIds[i], 0));
-                if (item != null)
-                {
-                    item.FactDispatchCount = Utils.StrToDecimal(factDispatchCounts[i], item.FactDispatchCount);
-                    item_list.Add(item);
-                }
-            }
+            //Model.TransportOrderItem item;
+            //for (int i = 0; i < itemIds.Length; i++)
+            //{
+            //    item = itemBll.GetModel(Utils.StrToInt(itemIds[i], 0));
+            //    if (item != null)
+            //    {
+            //        item.FactDispatchCount = Utils.StrToDecimal(factDispatchCounts[i], item.FactDispatchCount);
+            //        item_list.Add(item);
+            //    }
+            //}
 
             if (bll.Update(model,item_list))
             {

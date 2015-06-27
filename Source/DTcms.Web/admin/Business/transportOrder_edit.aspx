@@ -75,8 +75,8 @@
         });
 
         function addTransportOrderItem(order) {
-            if ($("tr[data-value='" + order.id + "']").length == 0) {
-                var html = "<tr data-value=\"" + order.id + "\">";
+            if ($("tr[data-order-id='" + order.id + "']").length == 0) {
+                var html = "<tr data-value=\"" + order.id + "\" data-order-id=\"" + order.id + "\">";
                 html += "<td width=\"5%\"><input type=\"hidden\" name=\"orderId\" value=\"" + order.id + "\"/></td>";
                 html += "<td width=\"10%\">" + order.billNumber + "</td>";
                 html += "<td width=\"10%\">" + order.shipper + "</td>";
