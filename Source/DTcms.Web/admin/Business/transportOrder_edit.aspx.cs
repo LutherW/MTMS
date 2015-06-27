@@ -256,9 +256,9 @@ namespace DTcms.Web.admin.Business
                     item.TotalPrice = order.TotalPrice;
                     item.CompanyPrice = item.TotalPrice;
                     item_list.Add(item);
-                    
-                    //int status = (order.IsCharteredCar == 1 || ((order.DispatchedCount + item.FactDispatchCount) == order.Quantity)) ? 1 : 0;
-                    //order.Status = status;
+
+                    int status = (order.IsCharteredCar == 1 || ((order.DispatchedCount + item.FactDispatchCount) == order.Quantity)) ? 1 : 0;
+                    order.Status = status;
                     order.DispatchedCount = item.FactDispatchCount;
                     order_list.Add(order);
                 }
