@@ -164,7 +164,7 @@
             <th width="20%">调用名称</th>
             <th width="28%">生成文件名</th>
             <th width="28%">模板文件名</th>
-            <th width="10%">操作</th>
+            <th width="5%">操作</th>
           </tr>
         </thead>
         <tbody id="item_box">

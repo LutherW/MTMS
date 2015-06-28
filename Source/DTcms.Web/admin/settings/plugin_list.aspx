@@ -45,7 +45,7 @@
 <HeaderTemplate>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
-    <th width="8%">选择</th>
+    <th width="5%">选择</th>
     <th align="left" width="20%">插件名称</th>
     <th align="left" width="12%">目录</th>
     <th align="left" width="12%">作者</th>

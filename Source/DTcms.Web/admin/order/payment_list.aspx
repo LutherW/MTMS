@@ -50,7 +50,7 @@
     <th align="left">支付描述</th>
     <th align="left" width="12%">排序</th>
     <th width="8%">是否启用</th>
-    <th width="10%">操作</th>
+    <th width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>

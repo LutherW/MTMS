@@ -49,7 +49,7 @@
 <HeaderTemplate>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
-    <th width="8%">选择</th>
+    <th width="5%">选择</th>
     <th align="left">角色名称</th>
     <th width="12%" align="left">类型</th>
     <th width="12%">操作</th>

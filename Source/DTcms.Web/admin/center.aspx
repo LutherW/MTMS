@@ -1,61 +1,77 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="center.aspx.cs" Inherits="DTcms.Web.admin.center" %>
-<%@ Import namespace="DTcms.Common" %>
+
+<%@ Import Namespace="DTcms.Common" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>管理首页</title>
-<link href="skin/default/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../scripts/jquery/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="js/layout.js"></script>
+    <title>管理首页</title>
+    <link href="skin/default/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../scripts/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/layout.js"></script>
+    <style type="text/css">
+        .process{padding:30px 50px;}
+        .process span{display:inline-block;width:64px;height:64px;line-height:56px;background:url("skin/default/color.png") no-repeat 0 -575px scroll; text-align:center;}
+        .process a{color:#fff;font-size:12px;}
+        .process .arr{background-position:20px -808px;height:48px;}
+        .process .bg1{background-position:0 0;}
+        .process .bg2{background-position:0 -67px;}
+        .process .bg3{background-position:0 -135px;}
+        .process .bg4{background-position:0 -200px;}
+        .process .bg5{background-position:0 -266px;}
+        .process .bg6{background-position:0 -401px;}
+        .process .bg7{background-position:0 -468px;}
+        .process .bg8{background-position:0 -536px;}
+        .process .bg9{background-position:0 -603px;}
+        .process .bg10{background-position:0 -669px;}
+        .process .bg11{background-position:0 -736px;}
+    </style>
 </head>
 
 <body class="mainbody">
-<form id="form1" runat="server">
-<!--导航栏-->
-<div class="location">
-  <a href="javascript:history.back(-1);" class="back"><i></i><span>返回上一页</span></a>
-  <a class="home"><i></i><span>首页</span></a>
-  <i class="arrow"></i>
-  <span>管理中心</span>
-</div>
-<!--/导航栏-->
+    <form id="form1" runat="server">
+        <!--导航栏-->
+        <div class="location">
+            <a href="javascript:history.back(-1);" class="back"><i></i><span>返回上一页</span></a>
+            <a class="home"><i></i><span>首页</span></a>
+            <i class="arrow"></i>
+            <span>管理中心</span>
+        </div>
+        <!--/导航栏-->
 
-<!--内容-->
-<div class="line10"></div>
-<div class="nlist-1">
-  <ul>
-    <li>本次登录IP：<asp:Literal ID="litIP" runat="server" Text="-" /></li>
-    <li>上次登录IP：<asp:Literal ID="litBackIP" runat="server" Text="-" /></li>
-    <li>上次登录时间：<asp:Literal ID="litBackTime" runat="server" Text="-" /></li>
-  </ul>
-</div>
-<div class="line10"></div>
+        <!--内容-->
+        <div class="line10"></div>
+        <div class="nlist-2">
+            <h3><i></i>登录信息</h3>
+            <ul>
+                <li>本次登录IP：<asp:Literal ID="litIP" runat="server" Text="-" /></li>
+                <li>上次登录IP：<asp:Literal ID="litBackIP" runat="server" Text="-" /></li>
+                <li>上次登录时间：<asp:Literal ID="litBackTime" runat="server" Text="-" /></li>
+            </ul>
+        </div>
+        <div class="line10"></div>
+        <div class="nlist-2">
+            <h3><i></i>业务流程</h3>
+            <div class="process">
+                <table border="0">
+                    <tr>
+                        <td><span class="bg3"><a href="business/order_edit.aspx?action=<%=DTEnums.ActionEnum.Add %>">新增订单</a></span></td>
+                        <td><span class="arr"></span></td>
+                        <td><span class="bg7"><a href="business/transportOrder_edit.aspx?action=<%=DTEnums.ActionEnum.Add %>">派车调度</a></span></td>
+                        <td><span class="arr"></span></td>
+                        <td><span class="bg10"><a href="business/dispatch_register_list.aspx">出车登记</a></span></td>
+                        <td><span class="arr"></span></td>
+                        <td><span class="bg4"><a href="business/expenses_register_list.aspx">回车报账</a></span></td>
+                        <td><span class="arr"></span></td>
+                        <td><span class="bg1"><a href="business/receipt_register_list.aspx">回单登记</a></span></td>
+                    </tr>
+                </table>
+    </div>
+        </div>
+        <div class="line20"></div>
 
-<div class="nlist-2">
-  <h3><i></i>系统信息</h3>
-  <ul>
-    <li>站点名称：<%=siteConfig.webname %></li>
-    <li>公司名称：<%=siteConfig.webcompany %></li>
-    <li>网站域名：<%=siteConfig.weburl %></li>
-    <li>安装目录：<%=siteConfig.webpath %></li>
-    <li>网站管理目录：<%=siteConfig.webmanagepath %></li>
-    <li>附件上传目录：<%=siteConfig.filepath %></li>
-    <li>服务器名称：<%=Server.MachineName%></li>
-    <li>服务器IP：<%=Request.ServerVariables["LOCAL_ADDR"] %></li>
-    <li>NET框架版本：<%=Environment.Version.ToString()%></li>
-    <li>操作系统：<%=Environment.OSVersion.ToString()%></li>
-    <li>IIS环境：<%=Request.ServerVariables["SERVER_SOFTWARE"]%></li>
-    <li>服务器端口：<%=Request.ServerVariables["SERVER_PORT"]%></li>
-    <li>目录物理路径：<%=Request.ServerVariables["APPL_PHYSICAL_PATH"]%></li>
-<%--    <li>系统版本：V<%=Utils.GetVersion()%></li>
-    <li>升级通知：<asp:Literal ID="LitUpgrade" runat="server"/></li>--%>
-  </ul>
-</div>
-<div class="line20"></div>
-
-<%--<div class="nlist-3">
+        <%--<div class="nlist-3">
   <ul>
     <li><a onclick="parent.linkMenuTree(true, 'site_config');" class="icon-setting" href="javascript:;"></a><span>系统设置</span></li>
     <li><a onclick="parent.linkMenuTree(true, 'site_channel_category');" class="icon-channel" href="javascript:;"></a><span>频道分类</span></li>
@@ -81,7 +97,7 @@
   </ul>
 </div>--%>
 
-<!--/内容-->
-</form>
+        <!--/内容-->
+    </form>
 </body>
 </html>

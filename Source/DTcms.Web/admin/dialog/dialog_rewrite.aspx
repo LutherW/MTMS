@@ -149,7 +149,7 @@
           <tr>
             <th width="45%">变量名称</th>
             <th width="45%">正则表达式</th>
-            <th width="8%">操作</th>
+            <th width="5%">操作</th>
           </tr>
         </thead>
         <tbody id="tr_box"></tbody>

@@ -33,9 +33,6 @@
             <div id="floatHead" class="toolbar">
                 <div class="l-list">
                     <div class="menu-list">
-                        <span style="font-size:12px;">
-                            车号:
-                        </span>
                         <div class="rule-single-select">
                             <asp:DropDownList ID="ddlCarNumber" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCarNumber_SelectedIndexChanged"></asp:DropDownList>
                         </div>
@@ -71,7 +68,7 @@
                         <th width="10%">应交还款</th>
                         <th width="10%">实交还款</th>
                         <th width="10%">司机费用</th>
-                        <th width="8%">操作</th>
+                        <th width="5%">操作</th>
                     </tr>
             </HeaderTemplate>
             <ItemTemplate>

@@ -48,13 +48,13 @@
 <HeaderTemplate>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
-    <th width="8%">选择</th>
+    <th width="5%">选择</th>
     <th align="left">物流名称</th>
     <th align="left" width="15%">查询代号</th>
     <th align="left" width="12%">配送费用</th>
     <th align="left" width="12%">排序</th>
     <th width="8%">是否启用</th>
-    <th width="10%">操作</th>
+    <th width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>

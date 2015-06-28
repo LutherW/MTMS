@@ -49,7 +49,7 @@
 <HeaderTemplate>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
-    <th width="8%">选择</th>
+    <th width="5%">选择</th>
     <th align="left">姓名</th>
     <th width="10%" align="left">身份证号</th>
     <th align="left" width="5%">助记码</th>
@@ -61,7 +61,7 @@
     <th width="8%">准驾证号</th>
     <th width="8%">准驾车型</th>
     <th width="8%">备注</th>
-    <th width="8%">操作</th>
+    <th width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>

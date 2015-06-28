@@ -49,12 +49,12 @@
 <HeaderTemplate>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
-    <th width="8%">选择</th>
+    <th width="5%">选择</th>
     <th align="left">名称</th>
-    <th align="left">分类</th>
-    <th align="left">助记码</th>
-    <th align="left">单位</th>
-    <th width="8%">操作</th>
+    <th width="15%" align="left">分类</th>
+    <th width="15%" align="left">助记码</th>
+    <th width="15%" align="left">单位</th>
+    <th width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>
@@ -68,9 +68,9 @@
         <%#Eval("Name")%>
       </a>
     </td>
-    <td align="center"><%#Eval("CategoryName")%></td>
-    <td align="center"><%#Eval("Code")%></td>
-    <td align="center"><%#Eval("Unit")%></td>
+    <td align="left"><%#Eval("CategoryName")%></td>
+    <td align="left"><%#Eval("Code")%></td>
+    <td align="left"><%#Eval("Unit")%></td>
     <td align="center"><a href="goods_edit.aspx?action=<%#DTEnums.ActionEnum.Edit %>&id=<%#Eval("Id")%>">修改</a></td>
   </tr>
 </ItemTemplate>

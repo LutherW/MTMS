@@ -55,18 +55,12 @@
             <div id="floatHead" class="toolbar">
                 <div class="l-list">
                     <div class="menu-list">
-                        <span style="font-size: 12px;">车号:
-                        </span>
                         <div class="rule-single-select">
                             <asp:DropDownList ID="ddlCarNumber" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCarNumber_SelectedIndexChanged"></asp:DropDownList>
                         </div>
-                        <span style="font-size: 12px;">托运方:
-                        </span>
                         <div class="rule-single-select">
                             <asp:DropDownList ID="ddlCustomer1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCustomer1_SelectedIndexChanged"></asp:DropDownList>
                         </div>
-                        <span style="font-size: 12px;">收货方:
-                        </span>
                         <div class="rule-single-select">
                             <asp:DropDownList ID="ddlCustomer2" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCustomer2_SelectedIndexChanged"></asp:DropDownList>
                         </div>

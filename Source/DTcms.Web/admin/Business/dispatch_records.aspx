@@ -47,13 +47,9 @@
                         <li><a class="all" href="javascript:void(0);" onclick="print();"><i></i><span>打印</span></a></li>
                     </ul>
                     <div class="menu-list">
-                        <span style="font-size: 12px;">车号:
-                        </span>
                         <div class="rule-single-select">
                             <asp:DropDownList ID="ddlCarNumber" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCarNumber_SelectedIndexChanged"></asp:DropDownList>
                         </div>
-                        <span style="font-size: 12px;">托运方:
-                        </span>
                         <div class="rule-single-select">
                             <asp:DropDownList ID="ddlCustomer1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCustomer1_SelectedIndexChanged"></asp:DropDownList>
                         </div>

@@ -72,7 +72,7 @@
 <HeaderTemplate>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
-    <th width="8%">选择</th>
+    <th width="5%">选择</th>
     <th align="left">订单号</th>
     <th align="left" width="12%">会员账号</th>
     <th align="left" width="10%">支付方式</th>
@@ -80,7 +80,7 @@
     <th width="8%">订单状态</th>
     <th width="10%">总金额</th>
     <th align="left" width="16%">下单时间</th>
-    <th width="8%">操作</th>
+    <th width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>

@@ -63,13 +63,13 @@
 <HeaderTemplate>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
-    <th width="8%">选择</th>
+    <th width="5%">选择</th>
     <th align="left" width="20%">模板名称</th>
     <th width="13%">作者</th>
     <th width="16%">创建日期</th>
     <th width="12%">版本号</th>
     <th align="left">适用版本</th>
-    <th width="10%">操作</th>
+    <th width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>

@@ -98,7 +98,7 @@
 <HeaderTemplate>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
-    <th width="8%">选择</th>
+    <th width="5%">选择</th>
     <th align="left" width="10%">车号</th>
     <th align="left" style="display:none;">车牌号码</th>
     <th width="8%">所属车队</th>
@@ -109,7 +109,7 @@
     <th width="8%">底盘号</th>
     <th width="8%">保险号</th>
     <th>备注</th>
-    <th width="8%">操作</th>
+    <th width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>

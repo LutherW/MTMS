@@ -43,7 +43,7 @@
 <HeaderTemplate>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
-    <th width="8%">选择</th>
+    <th width="5%">选择</th>
     <th align="left" width="12%">调用ID</th>
     <th align="left">导航标题</th>
     <th width="8%">显示</th>

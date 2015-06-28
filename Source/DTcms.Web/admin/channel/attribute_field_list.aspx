@@ -71,7 +71,7 @@
     <th align="left" width="12%">是否必填</th>
     <th align="left" width="12%">排序</th>
     <th align="left" width="110">系统默认</th>
-    <th width="10%">操作</th>
+    <th width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>

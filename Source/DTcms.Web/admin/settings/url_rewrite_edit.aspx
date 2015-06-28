@@ -138,7 +138,7 @@
             <th width="30%">重写表达式</th>
             <th width="30%">正则表达式</th>
             <th width="30%">传输参数</th>
-            <th width="10%">操作</th>
+            <th width="5%">操作</th>
           </tr>
         </thead>
         <tbody id="var_box">

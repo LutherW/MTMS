@@ -60,14 +60,14 @@
 <HeaderTemplate>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
-    <th width="8%">选择</th>
+    <th width="5%">选择</th>
     <th align="left">调用名称</th>
     <th width="10%" align="left">页面类型</th>
     <th width="20%" align="left">源页面名称</th>
     <th width="18%" align="left">继承类名</th>
     <th width="15%" align="left">模板名称</th>
     <th width="10%" align="left">归属频道</th>
-    <th width="8%">操作</th>
+    <th width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>

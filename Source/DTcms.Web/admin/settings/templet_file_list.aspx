@@ -45,11 +45,11 @@
 <HeaderTemplate>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
-    <th width="8%">选择</th>
+    <th width="5%">选择</th>
     <th align="left">文件名称</th>
     <th align="left" width="20%">创建时间</th>
     <th align="left" width="20%">最后修改时间</th>
-    <th width="10%">操作</th>
+    <th width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>

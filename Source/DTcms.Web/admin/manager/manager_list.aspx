@@ -47,14 +47,14 @@
 <HeaderTemplate>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
-    <th width="8%">选择</th>
+    <th width="5%">选择</th>
     <th align="left">用户名</th>
     <th align="left" width="12%">姓名</th>
     <th align="left" width="12%">角色</th>
     <th align="left" width="12%">电话</th>
     <th align="left" width="16%">添加时间</th>
     <th width="8%">状态</th>
-    <th width="8%">操作</th>
+    <th width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>

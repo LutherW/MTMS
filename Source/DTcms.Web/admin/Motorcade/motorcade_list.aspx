@@ -49,7 +49,7 @@
 <HeaderTemplate>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ltable">
   <tr>
-    <th width="8%">选择</th>
+    <th width="5%">选择</th>
     <th align="left" width="15%">车队名称</th>
     <th align="left" width="4%">外挂车队</th>
     <th align="left" width="5%">助记码</th>
@@ -57,7 +57,7 @@
     <th align="left" width="8%">联系电话</th>
     <th align="left" width="10%">联系地址</th>
     <th align="left" width="10%">备注</th>
-    <th width="10%">操作</th>
+    <th width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>

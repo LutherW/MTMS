@@ -50,9 +50,6 @@
                             <asp:LinkButton ID="btnDelete" runat="server" CssClass="del" OnClientClick="return ExePostBack('btnDelete');" OnClick="btnDelete_Click"><i></i><span>删除</span></asp:LinkButton></li>
                     </ul>--%>
                     <div class="menu-list">
-                        <span style="font-size:12px;">
-                            车号:
-                        </span>
                         <div class="rule-single-select">
                             <asp:DropDownList ID="ddlCarNumber" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCarNumber_SelectedIndexChanged"></asp:DropDownList>
                         </div>

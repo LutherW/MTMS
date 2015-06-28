@@ -111,7 +111,7 @@
     <th align="left" width="16%">发布时间</th>
     <th align="left" width="65">排序</th>
     <th align="left" width="110">属性</th>
-    <th width="8%">操作</th>
+    <th width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>

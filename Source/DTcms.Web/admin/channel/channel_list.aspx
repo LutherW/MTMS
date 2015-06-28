@@ -59,7 +59,7 @@
     <th align="left" width="20%">所属分类</th>
     <th align="left" width="12%">分页数量</th>
     <th align="left" width="12%">排序</th>
-    <th width="10%">操作</th>
+    <th width="5%">操作</th>
   </tr>
 </HeaderTemplate>
 <ItemTemplate>
