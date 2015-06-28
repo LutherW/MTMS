@@ -85,7 +85,7 @@ namespace DTcms.Web.admin.Business
                 transportOrderItems += "<td width=\"10%\">" + dr["Receiver"].ToString()  + "</td>";
                 transportOrderItems += "<td width=\"10%\">" + dr["Goods"].ToString()  + "</td>";
                 transportOrderItems += "<td width=\"9%\">" + dr["Unit"].ToString()  + "</td>";
-                transportOrderItems += "<td width=\"6%\"><input type=\"text\" name=\"factDispatchCount\" class=\"input small\" value=\"" + dr["FactDispatchCount"].ToString() + "\" readonly='readonly' style='width:50px'/></td>";
+                transportOrderItems += "<td width=\"6%\"><input type=\"text\" name=\"factDispatchCount\" class=\"input small\" value=\"" + dr["FactDispatchCount"].ToString() + "\" style='width:50px'/></td>";
                 transportOrderItems += "<td width=\"5%\"><input type=\"text\" name=\"factReceivedCount\" class=\"input small\" value=\"" + dr["FactReceivedCount"].ToString() + "\" style='width:50px'/></td>";
                 transportOrderItems += "<td width=\"5%\">￥" + string.Format("{0:N2}",dr["UnitPrice"].ToString())+ "</td>";
                 transportOrderItems += "<td width=\"5%\">￥<input type=\"text\" name=\"totalPrice\" value=\"" + dr["TotalPrice"].ToString() + "\" style='width:50px'/></td>";
@@ -140,12 +140,23 @@ namespace DTcms.Web.admin.Business
 
             List<Model.TransportOrderItem> item_list = new List<Model.TransportOrderItem>();
             BLL.TransportOrderItem itemBll = new BLL.TransportOrderItem();
+            Model.TransportOrderItem item;
+
+            List<Model.Order> orders = new List<Model.Order>();
+            BLL.Order orderBll = new BLL.Order();
+            Model.Order order;
             for (int i = 0; i < itemIds.Length; i++)
             {
-                Model.TransportOrderItem item = itemBll.GetModel(Utils.StrToInt(itemIds[i], 0));
+                item = itemBll.GetModel(Utils.StrToInt(itemIds[i], 0));
                 if (item != null)
                 {
-                    item.FactDispatchCount = Utils.StrToDecimal(factDispatchCounts[i], 0.00M);
+                    decimal oldFactDispatchCount = item.FactDispatchCount;
+                    decimal newFactDispatchCount = Utils.StrToDecimal(factDispatchCounts[i], 0.00M);
+                    order = orderBll.GetModel(item.OrderId);
+                    order.DispatchedCount += newFactDispatchCount - oldFactDispatchCount;
+                    orders.Add(order);
+
+                    item.FactDispatchCount = newFactDispatchCount;
                     item.FactReceivedCount = Utils.StrToDecimal(factReceivedCounts[i], 0.00M);
                     item.TotalPrice = Utils.StrToDecimal(totalPrices[i], 0.00M);
                     item.RoundStatus = roundStatus[i];
@@ -162,7 +173,7 @@ namespace DTcms.Web.admin.Business
                 consumption_list.Add(consumption);
             }
 
-            if (bll.Update(model, item_list, consumption_list))
+            if (bll.Update(model, item_list, consumption_list, orders))
             {
                 AddAdminLog(DTEnums.ActionEnum.Edit.ToString(), "回车报账信息:" + model.Code); //记录日志
                 result = true;

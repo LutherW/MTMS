@@ -129,7 +129,7 @@
                         <td align="center"><%#Eval("Receiver")%></td>
                         <td align="center"><%#Eval("Goods")%></td>
                         <td align="center"><%#Eval("Unit")%></td>
-                        <td align="center"><%#Eval("DispatchCount")%></td>
+                        <td align="center"><%#Eval("DispatchCount").ToString().Equals("0.00") ? "包车" : Eval("DispatchCount").ToString()%></td>
                         <td align="center"><%#Eval("FactDispatchCount")%></td>
                         <td align="center"><%#(Eval("Status").ToString().Equals("0") || Eval("Status").ToString().Equals("1")) ? string.Format("<a href=\"transportOrder_edit.aspx?action={0}&id={1}\">{2}</a>", DTEnums.ActionEnum.Edit, Eval("Id"), "修改") : "已报账"%></td>
                     </tr>

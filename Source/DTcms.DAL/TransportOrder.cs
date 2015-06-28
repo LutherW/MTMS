@@ -386,7 +386,7 @@ namespace DTcms.DAL
             return true;
         }
         //更新
-        public bool Update(Model.TransportOrder model, List<Model.TransportOrderItem> Item_list, List<Model.Consumption> consumption_list)
+        public bool Update(Model.TransportOrder model, List<Model.TransportOrderItem> Item_list, List<Model.Consumption> consumption_list, List<Model.Order> orders)
         {
             using (SqlConnection conn = new SqlConnection(DbHelperSQL.connectionString))
             {
@@ -581,6 +581,15 @@ namespace DTcms.DAL
                                 parameters2[1].Value = modelt.TransportOrderId;
                                 parameters2[2].Value = modelt.Money;
                                 DbHelperSQL.ExecuteSql(conn, trans, strSql2.ToString(), parameters2);
+                            }
+                        }
+
+                        if (orders.Count  > 0)
+                        {
+                            Order orderDAL = new Order();
+                            foreach (Model.Order order in orders)
+                            {
+                                orderDAL.UpdateField(conn, trans, order.Id, " DispatchedCount = " + order.DispatchedCount + " ");
                             }
                         }
 

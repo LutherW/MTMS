@@ -82,6 +82,7 @@
     <Content Include="admin\Business\dispatch_register_list.aspx" />
     <Content Include="admin\Business\transportOrder_list.aspx" />
     <Content Include="admin\center.aspx" />
+    <Content Include="admin\dialog\dialog_cost_list.aspx" />
     <Content Include="admin\Finance\costItem_edit.aspx" />
     <Content Include="admin\Finance\costItem_list.aspx" />
     <Content Include="admin\Employee\driver_edit.aspx" />
@@ -707,6 +708,13 @@
     </Compile>
     <Compile Include="admin\center.aspx.designer.cs">
       <DependentUpon>center.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\dialog\dialog_cost_list.aspx.cs">
+      <DependentUpon>dialog_cost_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dialog\dialog_cost_list.aspx.designer.cs">
+      <DependentUpon>dialog_cost_list.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\Finance\costItem_edit.aspx.cs">
       <DependentUpon>costItem_edit.aspx</DependentUpon>

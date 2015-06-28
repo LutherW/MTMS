@@ -147,7 +147,7 @@ namespace DTcms.Web.admin.Business
             }
             if (!string.IsNullOrEmpty(customer1))
             {
-                strTemp.Append(" and Shipper='" + customer1 + "'");
+                strTemp.Append(" and a.Shipper='" + customer1 + "'");
             }
             if (!string.IsNullOrEmpty(beginTime))
             {

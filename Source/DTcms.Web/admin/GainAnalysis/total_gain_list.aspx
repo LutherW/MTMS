@@ -12,6 +12,18 @@
     <script type="text/javascript" src="../js/layout.js"></script>
     <link href="../../css/pagination.css" rel="stylesheet" type="text/css" />
     <link href="../skin/default/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        function showCost(id) {
+            var dialog = $.dialog({
+                title: '收费项',
+                content: 'url:dialog/dialog_cost_list.aspx?id=' + id,
+                min: false,
+                max: false,
+                lock: true,
+                width: 700
+            });
+        }
+    </script>
 </head>
 
 <body class="mainbody">

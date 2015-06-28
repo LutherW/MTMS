@@ -67,6 +67,7 @@ namespace DTcms.Web.admin.Business
             DataTable dt = itemBll.GetList(" TransportOrderId = " + model.Id + "").Tables[0];
             foreach (DataRow dr in dt.Rows)
             {
+                string dispatchCount = dr["DispatchCount"].ToString().Equals("0.00") ? "包车" : dr["DispatchCount"].ToString();
                 transportOrderItems += "<tr data-value=\"" + dr["OrderId"].ToString() + "\">";
                 transportOrderItems += "<td width=\"5%\"><input type=\"hidden\" name=\"transportOrderItemId\" value=\"" + dr["Id"].ToString() + "\"/></td>";
                 transportOrderItems += "<td align=\"left\">" + dr["OrderCode"].ToString() + "</td>";
@@ -75,7 +76,7 @@ namespace DTcms.Web.admin.Business
                 transportOrderItems += "<td width=\"10%\">" + dr["Receiver"].ToString()  + "</td>";
                 transportOrderItems += "<td width=\"10%\">" + dr["Goods"].ToString()  + "</td>";
                 transportOrderItems += "<td width=\"9%\" align=\"center\">" + dr["Unit"].ToString()  + "</td>";
-                transportOrderItems += "<td width=\"6%\">" + dr["DispatchCount"].ToString() + "</td>";
+                transportOrderItems += "<td width=\"6%\">" + dispatchCount + "</td>";
                 transportOrderItems += "<td width=\"5%\">" + dr["FactDispatchCount"].ToString() + "</td>";
                 transportOrderItems += "<td width=\"5%\">￥" + dr["UnitPrice"].ToString()  + "</td>";
                 transportOrderItems += "<td width=\"5%\">￥" + dr["TotalPrice"].ToString() + "</td>";
