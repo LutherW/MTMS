@@ -161,7 +161,7 @@ namespace DTcms.DAL
 
                     StringBuilder strSql2 = new StringBuilder();
                     strSql2.Append("update mtms_Order set ");
-                    strSql2.Append(" DispatchedCount+=@DispatchedCount ");
+                    strSql2.Append(" DispatchedCount=DispatchedCount + @DispatchedCount ");
                     strSql2.Append(" where Id=@Id ");
                     SqlParameter[] parameters2 = {
 			            new SqlParameter("@Id", SqlDbType.Int,4) ,            
